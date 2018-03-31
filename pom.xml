@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>autotest</groupId>
+    <artifactId>web-automation4</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+    </dependencies>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.20.1</version>
+            <configuration>
+                <suiteXmlFiles>
+                    <suiteXmlFile>testnglocal.xml</suiteXmlFile>
+                </suiteXmlFiles>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+
+    <profiles>
+    <!--
+    to run tests using custom profile simply add -P name_of_the_profile to mvn command
+    ie.:
+        mvn clean test -P localRunner
+        or
+        mvn clean test -P remoteRunner
+    -->
+    <profile>
+        <id>localRunner</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testnglocal.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+    <profile>
+        <id>remoteRunner</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testngremote.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+    </profiles>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+</project>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Don't set the suite's "time-out" parameter otherwise it will cause tests 
+	not to run at all -->
+<suite name="Test executed using remote WebDriver" parallel="tests">
+	<parameter name="hubURL" value="http://localhost:4444/wd/hub" />
+	<listeners>
+		<listener class-name="com.autotest.driver.RemoteWebDriverListener" />
+	</listeners>
+
+	<test name="Tests run in Chrome">
+		<parameter name="browserName" value="chrome" />
+		<packages>
+			<package name="com.autotest.sales" />
+		</packages>
+		<classes>
+			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+			<!-- <class name="com.autotest.test.SecondTestClass" /> -->
+		</classes>
+	</test>
+
+	<test name="Tests run in Firefox">
+		<parameter name="browserName" value="firefox" />
+		<packages>
+			<package name="com.autotest.sales" />
+		</packages>
+		<classes>
+			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+			<!-- <class name="com.autotest.test.SecondTestClass" /> -->
+		</classes>
+	</test>
+
+    <test name="Tests run in Safari">
+		<parameter name="browserName" value="safari" />
+		<packages>
+			<package name="com.autotest.sales" />
+		</packages>
+		<classes>
+			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+       </classes>
+	</test>
+
+
+	<!--<test name="Tests run in Internet Explorer">-->
+		<!--<parameter name="browserName" value="ie" />-->
+		<!--<packages>-->
+			<!--<package name="com.autotest.test" />-->
+		<!--</packages>-->
+		<!--<classes>-->
+			<!--<class name="VerifySalesDashboardAllClientsTests" />-->
+		<!--</classes>-->
+	<!--</test>-->
+
+
+	<test name="Tests run in Edge">
+		<parameter name="browserName" value="edge" />
+		<packages>
+			<package name="com.autotest.test" />
+		</packages>
+		<classes>
+			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+		</classes>
+	</test>
+
+
+</suite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d [%t] %-5level: %msg%n%throwable}{FATAL=red, ERROR=red, WARN=blue, INFO=white, DEBUG=white, TRACE=white}"/>
+        </Console>
+
+        <File name="MyFile" fileName="logs/app.log" immediateFlush="true" append="false">
+            <PatternLayout pattern="%highlight{%d [%t] %-5level: %msg%n%throwable}{FATAL=red, ERROR=red, WARN=blue, INFO=white, DEBUG=white, TRACE=white}"/>
+        </File>
+    </appenders>
+
+    <loggers>
+        <root level="info">
+            <appender-ref ref="Console" level="info"/>
+            <appender-ref ref="MyFile" level="info"/>
+        </root>
+    </loggers>
+</configuration>
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test executed using local WebDriver" parallel="classes" thread-count="1">
+    <listeners>
+        <listener class-name="com.autotest.driver.LocalWebDriverListener"/>
+        <listener class-name="com.autotest.util.AnnotationTransformer"/>
+    </listeners>
+
+    <!--e.g.mvn clean test -am -DtestSuite=testnglocal.xml -Duser.url="http://dev.cst.scopicsoftware.com/" -Duser.browser=firefox-->
+    <test name="Tests run in Browser provided by command line parameter">
+        <parameter name="browserName" value="chrome"/>
+        <!--<parameter name="browserName" value="firefox"/>-->
+        <!--<parameter name="browserName" value="${user.browser}"/>-->
+        <classes>
+            <class name="com.autotest.orange.admin.AdminPageTest"></class>
+        </classes>
+    </test>
+
+</suite>
