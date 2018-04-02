@@ -58,8 +58,15 @@ public class MySQLTest extends BaseTest {
         conn = new MySqlConnect().openDB();
         stmt = MySqlConnect.getStmt();
 
-        String query = "SELECT * FROM pet;";
+        String query =  "SELECT " +
+                        "* " +
+                        "FROM " +
+                        "pet";
+
+        System.out.println(query + ";");
+
         String name = null;
+
         try {
 
             results = stmt.executeQuery(query);
@@ -90,7 +97,6 @@ public class MySQLTest extends BaseTest {
 
         //Assert Data from DB and GUI
         Assert.assertEquals(name, sCell);
-
 
         //Debug screenshot
         MySeleniumMethods.takeScreenshot(driver, getClass().getSimpleName().toString());
