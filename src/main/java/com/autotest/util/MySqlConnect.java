@@ -10,9 +10,9 @@ public class MySqlConnect {
 	// Connection object
 	private static Connection conn = null;
 	// Statement object
-	public static Statement stmt;
+	private static Statement stmt = null;
 	// Result Set
-	public static ResultSet results = null;
+	private static ResultSet results = null;
 	// Constant for Database URL
 	private static String DB_URL = "jdbc:mysql://localhost:3306/mydb"; // Oracle "jdbc:oracle:thin:@localhost:1521/sid"
 
@@ -25,6 +25,11 @@ public class MySqlConnect {
 	
 	// WebDriver
 	// public static WebDriver dv;
+
+
+	public static Statement getStmt() {
+		return stmt;
+	}
 
 	public Connection openDB() {
 		// Intialize WebDriver

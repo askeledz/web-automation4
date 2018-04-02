@@ -1,7 +1,6 @@
 package com.autotest.orange.admin;
 
 import com.autotest.sales.pages.AdminPage;
-import com.autotest.sales.pages.LandingPage;
 import com.autotest.test.BaseTest;
 import com.autotest.util.Config;
 import com.autotest.util.MySeleniumMethods;
@@ -18,6 +17,7 @@ import org.testng.annotations.Test;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MySQLTest extends BaseTest {
 
@@ -26,8 +26,8 @@ public class MySQLTest extends BaseTest {
     private static ResultSet results = null;
 
     Connection conn;
+    Statement stmt;
 
-    LandingPage landingPage;
     AdminPage adminPage;
 
     @BeforeTest
@@ -40,7 +40,7 @@ public class MySQLTest extends BaseTest {
             if (results != null)
                 results.close();
             System.out.println("results.close();");
-            if (MySqlConnect.stmt != null)
+            if (stmt != null)
                 conn.close();
             System.out.println("stmt - conn.close();");
             if (conn != null)
@@ -66,10 +66,11 @@ public class MySQLTest extends BaseTest {
 
         //Connecting MySQL and retriving the data
         conn = new MySqlConnect().openDB();
+        stmt = MySqlConnect.getStmt();
         String query = "SELECT * FROM pet;";
         try {
 
-            results = MySqlConnect.stmt.executeQuery(query);
+            results = stmt.executeQuery(query);
 
             while (results.next()) {
                 //int id = results.getInt("user_id");
