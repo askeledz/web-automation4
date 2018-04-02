@@ -18,6 +18,13 @@
 1. Import Project --> Select project root dir --> Import project from external model - Maven (leave everything by default)
 2. This is Maven project and you should import dependencies.
 
+# Set up MySQL
+- Run MySQL server
+- Create DB with following tables:
+    - CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+    - INSERT INTO pet VALUES ('Admin','Admin','usertest','f','1999-03-30',NULL);
+
+
 # Configuration
 Before you run your tests locally or remotely, you need to:
 
