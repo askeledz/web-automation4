@@ -59,14 +59,14 @@ public class MySQLTest extends BaseTest {
         stmt = MySqlConnect.getStmt();
 
         String query = "SELECT * FROM pet;";
-
+        String name = null;
         try {
 
             results = stmt.executeQuery(query);
 
             while (results.next()) {
                 //int id = results.getInt("user_id");
-                String name = results.getString("name");
+                name = results.getString("name");
                 String owner = results.getString("owner");
                 String species = results.getString("species");
                 String birth = results.getString("birth");
@@ -78,8 +78,6 @@ public class MySQLTest extends BaseTest {
                 System.out.println("species: " + species);
                 System.out.println("date: " + birth);
 
-                //Assert Data from DB and GUI
-                Assert.assertEquals(sCell, name);
             }
 
         } catch (SQLException se) {
@@ -89,6 +87,10 @@ public class MySQLTest extends BaseTest {
             // Handle errors for Class.forName
             e.printStackTrace();
         }
+
+        //Assert Data from DB and GUI
+        Assert.assertEquals(name, sCell);
+
 
         //Debug screenshot
         MySeleniumMethods.takeScreenshot(driver, getClass().getSimpleName().toString());
