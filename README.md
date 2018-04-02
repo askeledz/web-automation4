@@ -21,6 +21,8 @@
 # Set up MySQL
 - Run MySQL server
 - Create DB with following tables:
+    - CREATE DATABASE mydb;
+    - USE mydb;
     - CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
     - INSERT INTO pet VALUES ('Admin','Admin','usertest','f','1999-03-30',NULL);
 
