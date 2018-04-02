@@ -34,6 +34,13 @@ public class Config {
     public static final String USER_PASSWORD = get("user.password");
     public static String USER_URL = get("user.url");
 
+    public static final String MYSQL_DBURL = get("mysql.dburl");
+    public static final String MYSQL_USER = get("mysql.user");
+    public static final String MYSQL_PASSWORD = get("mysql.password");
+    public static final String MYSQL_DRIVER = get("mysql.driver");
+
+
+
 
     public static String get(String key) {
         if (!PROPS.containsKey(key)) {

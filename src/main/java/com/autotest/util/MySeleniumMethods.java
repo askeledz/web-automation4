@@ -12,7 +12,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * Created by Andrej Skeledzija 2017
+ */
 public class MySeleniumMethods {
 
     private static final Logger logger = LogManager.getLogger(MySeleniumMethods.class);
