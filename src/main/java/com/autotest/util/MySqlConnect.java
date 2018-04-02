@@ -24,7 +24,6 @@ public class MySqlConnect {
 			// STEP 2: Get connection to DB
 			System.out.println("Connecting to a selected database...");
 			conn = DriverManager.getConnection(Config.MYSQL_DBURL, Config.MYSQL_USER, Config.MYSQL_PASSWORD);
-			// conn = DriverManager.getConnection(DB_URL, props);
 			System.out.println("Connected database successfully...");
 
 			// STEP 3: Statement object to send the SQL statement to the Database
@@ -37,16 +36,20 @@ public class MySqlConnect {
 		return conn;
 	}
 
-	public void closeDb() {
+	public static void closeDb() {
 		try {
 			if (results != null)
 				results.close();
+			System.out.println("results.close();");
 			if (stmt != null)
 				conn.close();
+			System.out.println("stmt - conn.close();");
 			if (conn != null)
 				conn.close();
+			System.out.println("conn.close();");
 		} catch (SQLException se) {
 			se.printStackTrace();
 		}
+
 	}
 }

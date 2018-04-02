@@ -34,21 +34,11 @@ public class MySQLTest extends BaseTest {
     public void doBeforeTest() {
 
     }
+
     @AfterClass
     public void afterClass() {
-        try {
-            if (results != null)
-                results.close();
-            System.out.println("results.close();");
-            if (stmt != null)
-                conn.close();
-            System.out.println("stmt - conn.close();");
-            if (conn != null)
-                conn.close();
-            System.out.println("conn.close();");
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
+        //Close DB connection if any
+        MySqlConnect.closeDb();
     }
 
     @Parameters
@@ -67,7 +57,9 @@ public class MySQLTest extends BaseTest {
         //Connecting MySQL and retriving the data
         conn = new MySqlConnect().openDB();
         stmt = MySqlConnect.getStmt();
+
         String query = "SELECT * FROM pet;";
+
         try {
 
             results = stmt.executeQuery(query);
@@ -86,12 +78,10 @@ public class MySQLTest extends BaseTest {
                 System.out.println("species: " + species);
                 System.out.println("date: " + birth);
 
-                // From GUI
-//        		WebElement element = dv.findElement(By.id("uname"));
-//        		String actualUserName = element.getText();
-        		Assert.assertEquals(sCell, name);
+                //Assert Data from DB and GUI
+                Assert.assertEquals(sCell, name);
             }
-            results.close();
+
         } catch (SQLException se) {
             // Handle errors for JDBC
             se.printStackTrace();
@@ -99,7 +89,6 @@ public class MySQLTest extends BaseTest {
             // Handle errors for Class.forName
             e.printStackTrace();
         }
-
 
         //Debug screenshot
         MySeleniumMethods.takeScreenshot(driver, getClass().getSimpleName().toString());
