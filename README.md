@@ -20,7 +20,7 @@
 
 # Set up MySQL
 - Run MySQL server
-- Create DB with following tables:
+- Create DB and following table with data:
     - CREATE DATABASE mydb;
     - USE mydb;
     - CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
