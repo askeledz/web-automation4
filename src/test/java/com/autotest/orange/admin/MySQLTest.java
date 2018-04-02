@@ -53,7 +53,7 @@ public class MySQLTest extends BaseTest {
 
     @Parameters
     @Test(description = "MySQL Example", groups = {"checkintest"})
-    public void pageIsLoaded() throws Exception {
+    public void compareTheDataRetrievedOnTheUIandDatabase() throws Exception {
         logger.info("Test class = " + this.getClass().getSimpleName());
         logger.info("Test method = " + Thread.currentThread().getStackTrace()[1].getMethodName());
         driver = invokeBrowser(Config.USER_URL);
