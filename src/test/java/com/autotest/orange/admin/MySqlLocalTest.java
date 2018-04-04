@@ -19,9 +19,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class MySQLTest extends BaseTest {
+public class MySqlLocalTest extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(MySQLTest.class);
+    private static final Logger logger = LogManager.getLogger(MySqlLocalTest.class);
     private static WebDriver driver = null;
     private static ResultSet results = null;
 
@@ -42,7 +42,7 @@ public class MySQLTest extends BaseTest {
     }
 
     @Parameters
-    @Test(description = "MySQL Example", groups = {"checkintest"})
+    @Test(description = "MySQL Local Example", groups = {"checkintest"})
     public void compareTheDataRetrievedOnTheUIandDatabase() throws Exception {
         logger.info("Test class = " + this.getClass().getSimpleName());
         logger.info("Test method = " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -54,7 +54,7 @@ public class MySQLTest extends BaseTest {
         String sCell = adminPage.readValueFromTable("1", "2", driver);
         Assert.assertEquals(sCell, "Admin");
 
-        //Connecting MySQL and retriving the data
+        //Connecting MySQL Local and retrieving the data
         conn = new MySqlConnect().openDB();
         stmt = MySqlConnect.getStmt();
 

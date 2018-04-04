@@ -34,10 +34,19 @@ public class Config {
     public static final String USER_PASSWORD = get("user.password");
     public static String USER_URL = get("user.url");
 
+    //MySQL
     public static final String MYSQL_DBURL = get("mysql.dburl");
     public static final String MYSQL_USER = get("mysql.user");
     public static final String MYSQL_PASSWORD = get("mysql.password");
     public static final String MYSQL_DRIVER = get("mysql.driver");
+
+
+
+    //SSH Tunnel
+    public static final String SSH_HOST = get("ssh.host");
+    public static final String SSH_USER = get("ssh.user");
+    public static final String SSH_PASSWORD = get("ssh.password");
+
 
 
 
