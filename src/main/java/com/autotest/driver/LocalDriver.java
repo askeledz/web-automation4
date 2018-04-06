@@ -17,9 +17,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * Author: askeledzija It's a generic WebDriver manager, it works with local and remote instances of WebDriver
  */
-public class LocalDriverFactory {
+public class LocalDriver {
 
-    private static final Logger logger = LogManager.getLogger(LocalWebDriverListener.class);
+    private static final Logger logger = LogManager.getLogger(LocalDriverListener.class);
     //For Jenkins (Linux)
     //public static String chromeDriverPath = "/usr/bin/chromedriver";
     //public static String geckoDriverPath = "/usr/bin/geckodriver";
@@ -77,7 +77,7 @@ public class LocalDriverFactory {
             return driver;
         }
 
-        //logger.info("LocalDriverFactory created an instance of WebDriver for: " + browserName);
+        //logger.info("LocalDriver created an instance of WebDriver for: " + browserName);
         return driver;
     }
 }

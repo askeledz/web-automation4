@@ -15,28 +15,28 @@ import java.lang.reflect.Field;
  * It's a generic WebDriver manager, it works with local and remote instances of WebDriver
  */
 
-public class LocalWebDriverListener implements IInvokedMethodListener {
+public class LocalDriverListener implements IInvokedMethodListener {
 
-    private static final Logger logger = LogManager.getLogger(LocalWebDriverListener.class);
+    private static final Logger logger = LogManager.getLogger(LocalDriverListener.class);
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        logger.debug("BEGINNING: driver.LocalWebDriverListener.beforeInvocation");
+        logger.debug("BEGINNING: driver.LocalDriverListener.beforeInvocation");
         if (method.isTestMethod()) {
             // get browser name specified in the TestNG XML test suite file
             String browserName = method.getTestMethod().getXmlTest().getLocalParameters().get("browserName");
 
             // get and set new instance of local WebDriver
-            WebDriver driver = LocalDriverFactory.createInstance(browserName);
+            WebDriver driver = LocalDriver.createInstance(browserName);
             DriverManager.setWebDriver(driver);
         } else {
             logger.debug("Provided method is NOT a TestNG testMethod!!!");
         }
-        logger.debug("END: driver.LocalWebDriverListener.beforeInvocation");
+        logger.debug("END: driver.LocalDriverListener.beforeInvocation");
     }
 
 
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-        logger.debug("BEGINNING: driver.LocalWebDriverListener.afterInvocation");
+        logger.debug("BEGINNING: driver.LocalDriverListener.afterInvocation");
         if (method.isTestMethod()) {
             try {
                 // change the name of the test method that will appear in the report to one that will contain
@@ -58,6 +58,6 @@ public class LocalWebDriverListener implements IInvokedMethodListener {
                 }
             }
         }
-        logger.debug("END: driver.LocalWebDriverListener.afterInvocation");
+        logger.debug("END: driver.LocalDriverListener.afterInvocation");
     }
 }

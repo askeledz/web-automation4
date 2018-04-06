@@ -5,7 +5,7 @@
 <suite name="Test executed using remote WebDriver" parallel="tests">
 	<parameter name="hubURL" value="http://localhost:4444/wd/hub" />
 	<listeners>
-		<listener class-name="com.autotest.driver.RemoteWebDriverListener" />
+		<listener class-name="com.autotest.driver.RemoteDriverListener" />
 	</listeners>
 
 	<test name="Tests run in Chrome">
@@ -14,8 +14,9 @@
 			<package name="com.autotest.sales" />
 		</packages>
 		<classes>
-			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
-			<!-- <class name="com.autotest.test.SecondTestClass" /> -->
+			<class name="com.autotest.orange.admin.AdminPageTest"></class>
+			<!--<class name="com.autotest.orange.admin.MySqlLocalTest"></class>-->
+			<!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
 		</classes>
 	</test>
 
@@ -25,8 +26,9 @@
 			<package name="com.autotest.sales" />
 		</packages>
 		<classes>
-			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
-			<!-- <class name="com.autotest.test.SecondTestClass" /> -->
+			<class name="com.autotest.orange.admin.AdminPageTest"></class>
+			<!--<class name="com.autotest.orange.admin.MySqlLocalTest"></class>-->
+			<!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
 		</classes>
 	</test>
 
@@ -36,7 +38,9 @@
 			<package name="com.autotest.sales" />
 		</packages>
 		<classes>
-			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+			<class name="com.autotest.orange.admin.AdminPageTest"></class>
+			<!--<class name="com.autotest.orange.admin.MySqlLocalTest"></class>-->
+			<!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
        </classes>
 	</test>
 
@@ -58,7 +62,9 @@
 			<package name="com.autotest.test" />
 		</packages>
 		<classes>
-			<class name="com.autotest.sales.dashboard.AllClientsPageCheckinTest" />
+			<class name="com.autotest.orange.admin.AdminPageTest"></class>
+			<!--<class name="com.autotest.orange.admin.MySqlLocalTest"></class>-->
+			<!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
 		</classes>
 	</test>
 

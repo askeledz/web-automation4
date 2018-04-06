@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
  * It's a generic WebDriver manager, it works with local and remote instances of WebDriver
  */
 
-public class RemoteDriverFactory {
+public class RemoteDriver {
 
-    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(RemoteDriverFactory.class);
+    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(RemoteDriver.class);
 
     static RemoteWebDriver createInstance(String browserName) {
         URL hubUrl = null;
@@ -26,7 +26,7 @@ public class RemoteDriverFactory {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        return RemoteDriverFactory.createInstance(hubUrl, browserName);
+        return RemoteDriver.createInstance(hubUrl, browserName);
     }
 
     static RemoteWebDriver createInstance(URL hubUrl, String browserName) {

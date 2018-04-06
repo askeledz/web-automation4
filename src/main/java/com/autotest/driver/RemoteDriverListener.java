@@ -13,13 +13,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class RemoteWebDriverListener implements IInvokedMethodListener {
+public class RemoteDriverListener implements IInvokedMethodListener {
 
-    private static final Logger logger = LogManager.getLogger(RemoteWebDriverListener.class);
+    private static final Logger logger = LogManager.getLogger(RemoteDriverListener.class);
 
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        logger.debug("BEGINNING: RemoteWebDriverListener.beforeInvocation");
+        logger.debug("BEGINNING: RemoteDriverListener.beforeInvocation");
         if (method.isTestMethod()) {
             // get browser name specified in the TestNG XML test suite file
            String browserName = method.getTestMethod().getXmlTest().getLocalParameters().get("browserName");
@@ -34,16 +34,16 @@ public class RemoteWebDriverListener implements IInvokedMethodListener {
             }
             logger.info("HUB URL: " + hubURL);
             // get and set new instance of remote WebDriver
-            WebDriver driver = RemoteDriverFactory.createInstance(hubURL, browserName);
+            WebDriver driver = RemoteDriver.createInstance(hubURL, browserName);
             DriverManager.setWebDriver(driver);
         } else {
             logger.debug("Provided method is NOT a TestNG testMethod!!!");
         }
-        logger.debug("END: RemoteWebDriverListener.beforeInvocation");
+        logger.debug("END: RemoteDriverListener.beforeInvocation");
     }
 
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-        logger.debug("BEGINNING: RemoteWebDriverListener.afterInvocation");
+        logger.debug("BEGINNING: RemoteDriverListener.afterInvocation");
         if (method.isTestMethod()) {
             String browser = DriverManager.getBrowserInfo();
             try {
@@ -62,6 +62,6 @@ public class RemoteWebDriverListener implements IInvokedMethodListener {
                 }
             }
         }
-        logger.debug("END: RemoteWebDriverListener.afterInvocation");
+        logger.debug("END: RemoteDriverListener.afterInvocation");
     }
 }
