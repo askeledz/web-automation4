@@ -58,6 +58,7 @@ Before you run your tests locally or remotely, you need to:
 
 - NOTE: Make sure you execute those commands under dir where chromedriver and geckodriver are located and also .json files should be there.
 
+- Check Grid's console at http://localhost:4444/grid/console
 
 # Remote configuration for Microsoft Edge (How to set up Selenium Grid to test Microsoft Edge from MacOS)
 - Launch your Windows VM. Make sure the Windows VM and your Mac can ping each other over the network.
@@ -97,9 +98,10 @@ It os the same for Local, just need to run "TestNG-Local.xml"
 - Simply right click on the "testnglocal.xml" and chose "Run".
 
 # Tests run from command line
-- $mvn clean test -am -DtestSuite=testnglocal.xml -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=chrome
-- $mvn clean test -am -DtestSuite=testnglocal.xml -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=firefox
-- $mvn clean test -am -DtestSuite=testngremote.xml 
+- $mvn clean test -P localRunner -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=chrome
+- $mvn clean test -P localRunner -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=firefox
+- $mvn clean test -P remoteRunner
+
 
 # Reports
 - /target/surefire-reports/index.html

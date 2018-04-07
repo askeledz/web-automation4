@@ -110,6 +110,9 @@
     </profile>
     <profile>
         <id>remoteRunner</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
         <build>
             <plugins>
                 <plugin>

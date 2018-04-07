@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!-- Don't set the suite's "time-out" parameter otherwise it will cause tests 
 	not to run at all -->
-<suite name="Test executed using remote WebDriver" parallel="tests">
+<suite name="Test executed using remote WebDriver" parallel="tests" thread-count="3">
 	<parameter name="hubURL" value="http://localhost:4444/wd/hub" />
 	<listeners>
 		<listener class-name="com.autotest.driver.RemoteDriverListener" />
@@ -56,17 +56,17 @@
 	<!--</test>-->
 
 
-	<test name="Tests run in Edge">
-		<parameter name="browserName" value="edge" />
-		<packages>
-			<package name="com.autotest.test" />
-		</packages>
-		<classes>
-			<class name="com.autotest.orange.admin.AdminPageTest"></class>
-			<!--<class name="com.autotest.orange.admin.MySqlLocalTest"></class>-->
-			<!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
-		</classes>
-	</test>
+	<!--<test name="Tests run in Edge">-->
+		<!--<parameter name="browserName" value="edge" />-->
+		<!--<packages>-->
+			<!--<package name="com.autotest.test" />-->
+		<!--</packages>-->
+		<!--<classes>-->
+			<!--<class name="com.autotest.orange.admin.AdminPageTest"></class>-->
+			<!--&lt;!&ndash;<class name="com.autotest.orange.admin.MySqlLocalTest"></class>&ndash;&gt;-->
+			<!--&lt;!&ndash;<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>&ndash;&gt;-->
+		<!--</classes>-->
+	<!--</test>-->
 
 
 </suite>
