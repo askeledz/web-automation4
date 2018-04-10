@@ -4,6 +4,7 @@ import com.autotest.sales.pages.AdminPage;
 import com.autotest.test.BaseTest;
 import com.autotest.util.Config;
 import com.autotest.util.MySqlRemoteConnect;
+import com.autotest.util.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -57,11 +58,12 @@ public class MySqlRemoteTest extends BaseTest {
 
         int id;
         String name = null;
-        String sql = "select * from users";
+
 
         try {
 
-            results = stmt.executeQuery(sql);
+            System.out.println(Queries.getQuery("rtest_query"));
+            results = stmt.executeQuery(Queries.getQuery("rtest_query"));
 
             while (results.next()) {
                 id = results.getInt("id");

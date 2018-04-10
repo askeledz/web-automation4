@@ -18,7 +18,6 @@ import java.util.List;
  * @author askeledzija
  */
 
-
 public class AdminPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(AdminPage.class);

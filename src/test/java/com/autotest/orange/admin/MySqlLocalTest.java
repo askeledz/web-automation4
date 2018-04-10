@@ -5,6 +5,7 @@ import com.autotest.test.BaseTest;
 import com.autotest.util.Config;
 import com.autotest.util.MySeleniumMethods;
 import com.autotest.util.MySqlConnect;
+import com.autotest.util.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -58,18 +59,13 @@ public class MySqlLocalTest extends BaseTest {
         conn = new MySqlConnect().openDB();
         stmt = MySqlConnect.getStmt();
 
-        String query =  "SELECT " +
-                        "* " +
-                        "FROM " +
-                        "pet";
-
-        System.out.println(query + ";");
-
         String name = null;
 
         try {
 
-            results = stmt.executeQuery(query);
+
+            System.out.println(Queries.getQuery("ltest_query"));
+            results = stmt.executeQuery(Queries.getQuery("ltest_query"));
 
             while (results.next()) {
                 //int id = results.getInt("user_id");

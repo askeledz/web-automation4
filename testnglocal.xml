@@ -14,7 +14,7 @@
         <classes>
             <class name="com.autotest.orange.admin.AdminPageTest"></class>
             <class name="com.autotest.orange.admin.MySqlLocalTest"></class>
-            <!--<class name="com.autotest.orange.admin.MySqlRemoteTest"></class>-->
+            <class name="com.autotest.orange.admin.MySqlRemoteTest"></class>
         </classes>
     </test>
 
