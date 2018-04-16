@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class Queries {
 
-    private static final String propFileName = "queries.sql";
+    private static final String propFileName = "queries.properties";
 
     private static Properties props;
 
