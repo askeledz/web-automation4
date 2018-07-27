@@ -1,6 +1,7 @@
 package com.autotest.sales.pages;
 
 import com.autotest.test.BasePage;
+import com.autotest.util.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,14 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class LoginPage extends BasePage {
 
-    @FindBy(how = How.ID, using = "txtUsername")
-    private WebElement input_username_box;
+    @FindBy(how = How.ID, using = "email")
+    private WebElement input_email_box;
 
-    @FindBy(how = How.ID, using = "txtPassword")
+    @FindBy(how = How.ID, using = "passwd")
     private WebElement input_password_box;
 
 
-    @FindBy(how = How.ID, using = "btnLogin")
+    @FindBy(how = How.ID, using = "SubmitLogin")
     private WebElement loginInButton;
 
 
@@ -30,8 +31,8 @@ public class LoginPage extends BasePage {
 
 
     public boolean isEmailBoxVisible() {
-        new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(input_username_box));
-        return input_username_box.isDisplayed();
+        new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(input_email_box));
+        return input_email_box.isDisplayed();
     }
 
     public boolean isPasswordBoxVisible() {
@@ -41,7 +42,7 @@ public class LoginPage extends BasePage {
 
     public void inputEmail(String email) {
         isEmailBoxVisible();
-        input_username_box.sendKeys(email);
+        input_email_box.sendKeys(email);
     }
 
     public void inputPassword(String pass) {
@@ -50,6 +51,8 @@ public class LoginPage extends BasePage {
     }
 
     public LandingPage signIn() throws InterruptedException {
+        inputEmail(Config.USER_MAIL);
+        inputPassword(Config.USER_PASSWORD);
         loginInButton.click();
         Thread.sleep(3000);
         return new LandingPage(driver);

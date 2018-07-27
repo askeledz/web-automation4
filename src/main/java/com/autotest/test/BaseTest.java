@@ -1,10 +1,9 @@
 package com.autotest.test;
 
 import com.autotest.driver.DriverManager;
-import com.autotest.sales.pages.AdminPage;
+import com.autotest.sales.pages.IndexPage;
 import com.autotest.sales.pages.LandingPage;
 import com.autotest.sales.pages.LoginPage;
-import com.autotest.util.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ public class BaseTest {
 
     LoginPage loginPage;
     LandingPage landingPage;
-    AdminPage adminPage;
+    IndexPage indexPage;
 
     protected WebDriver invokeBrowser(String url) {
         WebDriver driver = DriverManager.getDriver();
@@ -29,12 +28,8 @@ public class BaseTest {
         return driver;
     }
 
-    protected AdminPage salesModuleSubmit(WebDriver driver) throws InterruptedException {
-        loginPage = new LoginPage(driver);
-        loginPage.inputEmail(Config.USER_NAME);
-        loginPage.inputPassword(Config.USER_PASSWORD);
-        landingPage = loginPage.signIn();
-        adminPage = landingPage.goToAdminPage();
-        return adminPage;
+    protected LoginPage signInSubmit(WebDriver driver) throws InterruptedException {
+        indexPage = new IndexPage(driver);
+        return loginPage = indexPage.goToLoginPage();
     }
 }

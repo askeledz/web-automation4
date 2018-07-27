@@ -30,7 +30,7 @@ public class Config {
     }
 
     //get properties from file
-    public static final String USER_NAME = get("user.name");
+    public static final String USER_MAIL = get("user.mail");
     public static final String USER_PASSWORD = get("user.password");
     public static String USER_URL = get("user.url");
 
