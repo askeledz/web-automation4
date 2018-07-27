@@ -106,8 +106,8 @@ It os the same for Local, just need to run "TestNG-Local.xml"
 - Simply right click on the "testnglocal.xml" and chose "Run".
 
 # Tests run from command line
-- $mvn clean test -P localRunner -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=chrome
-- $mvn clean test -P localRunner -Duser.url="http://opensource.demo.orangehrmlive.com/" -Duser.browser=firefox
+- $mvn clean test -P localRunner -Duser.url="http://automationpractice.com" -Duser.browser=chrome
+- $mvn clean test -P localRunner -Duser.url="http://automationpractice.com" -Duser.browser=firefox
 - $mvn clean test -P remoteRunner
 
 
