@@ -23,8 +23,16 @@
 - Create DB and following table with data:
     - CREATE DATABASE mydb;
     - USE mydb;
-    - CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
-    - INSERT INTO pet VALUES ('Admin','Admin','usertest','f','1999-03-30',NULL);
+    - CREATE TABLE Persons (
+       PersonID int,
+       FirstName varchar(255),
+       LastName varchar(255),
+       Address varchar(255),
+       City varchar(255) 
+       );
+    - INSERT INTO Persons (PersonID, FirstName, LastName, Address, City )
+      VALUES (1, 'Andrej', 'Skeledzija', 'I.G. 61B', 'Osijek');
+    - SELECT * FROM Persons;
 
 
 # Configuration
